@@ -10,7 +10,7 @@ import me.imid.swipebacklayout.lib.SwipeBackLayout;
 import me.imid.swipebacklayout.lib.Utils;
 
 /**
- * @author Yrom
+ * Yrom
  */
 public class SwipeBackActivityHelper {
     private Activity mActivity;

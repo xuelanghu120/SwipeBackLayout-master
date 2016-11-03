@@ -47,11 +47,40 @@ public class Utils {
      * This call has no effect on non-translucent activities or on activities
      * with the {@link android.R.attr#windowIsFloating} attribute.
      */
-    public static void convertActivityToTranslucent(Activity activity) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            convertActivityToTranslucentAfterL(activity);
-        } else {
-            convertActivityToTranslucentBeforeL(activity);
+//    public static void convertActivityToTranslucent(Activity activity) {
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            convertActivityToTranslucentAfterL(activity);
+//        } else {
+//            convertActivityToTranslucentBeforeL(activity);
+//        }
+//    }
+    public static void convertActivityToTranslucent(Activity mActivity) {
+        try {
+            Class<?>[] classes = Activity.class.getDeclaredClasses();
+            Class<?> translucentConversionListenerClazz = null;
+            for (Class clazz : classes) {
+                if (clazz.getSimpleName().contains(
+                        "TranslucentConversionListener")) {
+                    translucentConversionListenerClazz = clazz;
+                }
+            }
+            Method[] methods = Activity.class.getDeclaredMethods();
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+                Method method = Activity.class.getDeclaredMethod(
+                        "convertToTranslucent",
+                        translucentConversionListenerClazz);
+                method.setAccessible(true);
+                method.invoke(mActivity, new Object[] { null });
+            } else {
+                Method method = Activity.class.getDeclaredMethod(
+                        "convertToTranslucent",
+                        translucentConversionListenerClazz,
+                        ActivityOptions.class);
+                method.setAccessible(true);
+                method.invoke(mActivity, new Object[] { null, null });
+            }
+        } catch (Throwable t) {
+            t.printStackTrace();
         }
     }
 

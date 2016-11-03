@@ -172,7 +172,7 @@ public class SwipeBackLayout extends FrameLayout {
     /**
      * Set up contentView which will be moved by user gesture
      *
-     * @param view
+     * @param view contentView
      */
     private void setContentView(View view) {
         mContentView = view;
@@ -185,16 +185,13 @@ public class SwipeBackLayout extends FrameLayout {
     /**
      * Enable edge tracking for the selected edges of the parent view. The
      * callback's
-     * {@link me.imid.swipebacklayout.lib.ViewDragHelper.Callback#onEdgeTouched(int, int)}
+     * { me.imid.swipebacklayout.lib.ViewDragHelper.Callback#onEdgeTouched(int, int)}
      * and
-     * {@link me.imid.swipebacklayout.lib.ViewDragHelper.Callback#onEdgeDragStarted(int, int)}
+     * { me.imid.swipebacklayout.lib.ViewDragHelper.Callback#onEdgeDragStarted(int, int)}
      * methods will only be invoked for edges for which edge tracking has been
      * enabled.
      *
-     * @param edgeFlags Combination of edge flags describing the edges to watch
-     * @see #EDGE_LEFT
-     * @see #EDGE_RIGHT
-     * @see #EDGE_BOTTOM
+     * @param edgeFlags Combination of edge flags describing the edges to watch EDGE_LEFT EDGE_RIGHT EDGE_BOTTOM
      */
     public void setEdgeTrackingEnabled(int edgeFlags) {
         mEdgeFlag = edgeFlags;
@@ -250,7 +247,7 @@ public class SwipeBackLayout extends FrameLayout {
     /**
      * Removes a listener from the set of listeners
      *
-     * @param listener
+     * @param listener listener
      */
     public void removeSwipeListener(SwipeListener listener) {
         if (mListeners == null) {
@@ -291,7 +288,7 @@ public class SwipeBackLayout extends FrameLayout {
      * Set scroll threshold, we will close the activity, when scrollPercent over
      * this value
      *
-     * @param threshold
+     * @param threshold threshold
      */
     public void setScrollThresHold(float threshold) {
         if (threshold >= 1.0f || threshold <= 0) {
@@ -304,7 +301,7 @@ public class SwipeBackLayout extends FrameLayout {
      * Set a drawable used for edge shadow.
      *
      * @param shadow    Drawable to use
-     * @param edgeFlags Combination of edge flags describing the edge to set
+     * @param edgeFlag Combination of edge flags describing the edge to set
      * @see #EDGE_LEFT
      * @see #EDGE_RIGHT
      * @see #EDGE_BOTTOM
@@ -324,7 +321,7 @@ public class SwipeBackLayout extends FrameLayout {
      * Set a drawable used for edge shadow.
      *
      * @param resId     Resource of drawable to use
-     * @param edgeFlags Combination of edge flags describing the edge to set
+     * @param edgeFlag Combination of edge flags describing the edge to set
      * @see #EDGE_LEFT
      * @see #EDGE_RIGHT
      * @see #EDGE_BOTTOM

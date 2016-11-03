@@ -17,6 +17,7 @@
 package me.imid.swipebacklayout.lib;
 
 import android.content.Context;
+
 import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.VelocityTrackerCompat;
 import android.support.v4.view.ViewCompat;
@@ -143,7 +144,6 @@ public class ViewDragHelper {
     private int mTrackingEdges;
 
     private ScrollerCompat mScroller;
-
     private final Callback mCallback;
 
     private View mCapturedView;
@@ -1469,6 +1469,7 @@ public class ViewDragHelper {
      * @param edges Edges to check for an initial edge touch. See
      *              {@link #EDGE_LEFT}, {@link #EDGE_TOP}, {@link #EDGE_RIGHT},
      *              {@link #EDGE_BOTTOM} and {@link #EDGE_ALL}
+     * @param pointerId
      * @return true if any of the edges specified were initially touched in the
      * current gesture
      */
